@@ -1,0 +1,141 @@
+/* Basic Styling */
+body {
+    margin: 0; /* ไม่มีระยะห่างรอบนอก */
+    padding: 0; /* ไม่มีระยะห่างภายใน */
+    font-family: sans-serif; /* กำหนดฟอนต์ */
+  }
+  
+  /* Side Navigation */
+  .sidenav {
+    height: 100%; /* ความสูง 100% ของ viewport */
+    width: 250px; /* ความกว้าง 250px */
+    position: fixed; /* กำหนดตำแหน่งแบบ fixed */
+    z-index: 1; /* กำหนดให้ sidenav อยู่บนสุด */
+    top: 0; /* จัดตำแหน่งให้อยู่ด้านบนสุด */
+    left: -250px; /* ซ่อน sidenav ไว้ด้านซ้าย */
+    background-color: #2196F3; /* สีพื้นหลัง */
+    overflow-x: hidden; /* ซ่อน scrollbar แนวนอน */
+    padding-top: 20px; /* ระยะห่างด้านบน */
+    transition: 0.3s ease; /* เพิ่ม transition effect */
+    box-sizing: border-box; /* รวม padding และ border ใน width */
+  }
+  
+  .sidenav a {
+    padding: 16px 8px 16px 32px; /* ระยะห่างภายในลิงก์ */
+    text-decoration: none; /* ไม่มีเส้นใต้ */
+    font-size: 18px; /* ขนาดตัวอักษร */
+    color: #fff; /* สีตัวอักษร */
+    display: block; /* แสดงลิงก์แบบ block */
+    transition: 0.3s; /* เพิ่ม transition effect */
+    position: relative; /* กำหนดตำแหน่งแบบ relative */
+  }
+  
+  .sidenav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* สีพื้นหลังเมื่อ hover */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* เพิ่ม shadow effect */
+  }
+  
+  .sidenav a.active {
+    background-color: rgba(255, 255, 255, 0.3); /* สีพื้นหลังของลิงก์ active */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* เพิ่ม shadow effect */
+  }
+  
+  .sidenav a::after { /* เพิ่มเส้นใต้เมื่อ hover */
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .sidenav a:hover::after {
+    width: 20px;
+  }
+  
+  /* Content */
+  .content {
+    padding: 20px; /* ระยะห่างภายใน */
+    transition: margin-left 0.3s ease; /* เพิ่ม transition effect */
+  }
+  
+  .content.open { /* สไตล์สำหรับ content เมื่อ sidenav เปิด */
+    margin-left: 250px; /* ระยะห่างด้านซ้าย */
+  }
+  
+  /* Close Button */
+  .closebtn { 
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .closebtn:hover {
+    color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  /* Media Query for smaller screens */
+  @media screen and (max-width: 768px) {
+    .sidenav {
+      width: 100%;
+    }
+  
+    .sidenav a {
+      padding: 10px 8px 10px 32px;
+      font-size: 16px;
+    }
+  }
+  
+  /* Container for Upload Form */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 100vh; 
+    padding: 20px;
+  }
+  
+  /* File Upload Button */
+  .file-upload { 
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0; 
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .file-upload span {
+    display: inline-block;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Submit Button */
+  .container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

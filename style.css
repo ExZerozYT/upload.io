@@ -1,0 +1,198 @@
+/* Basic Styling */
+body {
+  margin: 0; /*  ไม่มีระยะห่างรอบนอก  */
+  font-family: sans-serif; /*  กำหนดฟอนต์  */
+  overflow-x: hidden; /*  ซ่อนแถบเลื่อนแนวนอน  */
+}
+
+/* Side Navigation */
+.sidenav {
+  height: 100%; /*  ความสูง  100%  ของ  viewport  */
+  width: 250px; /*  ความกว้าง  250px  */
+  position: fixed; /*  กำหนดตำแหน่งแบบ  fixed  */
+  z-index: 1; /*  กำหนดให้  sidenav  อยู่บนสุด  */
+  top: 0; /*  จัดตำแหน่งให้อยู่ด้านบนสุด  */
+  left: -250px; /*  ซ่อน  sidenav  ไว้ด้านซ้าย  */
+  background-color: #2196F3; /*  สีพื้นหลัง  */
+  overflow-x: hidden; /*  ซ่อนแถบเลื่อนแนวนอน  */
+  transition: 0.3s ease; /*  เพิ่ม  transition effect  */
+  box-sizing: border-box; /*  รวม  padding  และ  border  ใน  width  */
+  text-align: center; /*  จัดข้อความให้อยู่กึ่งกลาง  */
+}
+
+.sidenav a {
+  padding: 16px 32px 16px 8px; /*  ระยะห่างภายในลิงก์  */
+  text-decoration: none; /*  ไม่มีเส้นใต้  */
+  font-size: 18px; /*  ขนาดตัวอักษร  */
+  color: #fff; /*  สีตัวอักษร  */
+  display: block; /*  แสดงลิงก์แบบ  block  */
+  transition: 0.3s; /*  เพิ่ม  transition effect  */
+  position: relative; /*  กำหนดตำแหน่งแบบ  relative  */
+}
+
+.sidenav a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /*  สีพื้นหลังเมื่อ  hover  */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /*  เพิ่ม  shadow effect  */
+}
+
+.sidenav a.active {
+  background-color: rgba(255, 255, 255, 0.3); /*  สีพื้นหลังของลิงก์  active  */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /*  เพิ่ม  shadow effect  */
+}
+
+.sidenav a::after { /*  เพิ่มเส้นใต้เมื่อ  hover  */
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 20px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.sidenav a:hover::after {
+  width: 20px;
+}
+
+.closebtn { /*  สไตล์สำหรับปุ่มปิด  */
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.closebtn:hover {
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.sidenav-icon { /*  สไตล์สำหรับรูปภาพใน  sidenav  */
+  width: 100px; /*  ความกว้างของรูปภาพ  */
+  height: 100px; /*  ความสูงของรูปภาพ  */
+  object-fit: contain; /*  ปรับขนาดรูปภาพให้อยู่ในกรอบ  */
+  margin-bottom: 20px; /*  ระยะห่างด้านล่าง  */
+  margin-top: 20px; /*  ระยะห่างด้านบน  */
+  display: block; /*  แสดงรูปภาพแบบ  block  */
+  margin-left: auto; /*  จัดให้อยู่กึ่งกลางแนวนอน  */
+  margin-right: auto; /*  จัดให้อยู่กึ่งกลางแนวนอน  */
+}
+
+
+/* Content */
+.content {
+  transition: margin-left 0.3s ease; /*  เพิ่ม  transition effect  */
+}
+
+.content.open { /*  สไตล์สำหรับ  content  เมื่อ  sidenav  เปิด  */
+  margin-left: 250px; /*  ระยะห่างด้านซ้าย  */
+}
+
+/* Menu Container */
+.menu-container {
+  display: flex; /*  จัดเรียงแบบ  flexbox  */
+  align-items: center; /*  จัดองค์ประกอบในแนวตั้งให้อยู่กึ่งกลาง  */
+  padding: 30px 20px; /*  ระยะห่างภายใน  */
+}
+
+.menu-container span { /*  กำหนดขนาดตัวอักษรของเมนู  */
+  font-size: 30px; 
+}
+
+
+/* Dashboard Container */
+.dashboard-container {
+  display: flex; /*  จัดเรียงแบบ  flexbox  */
+  margin-left: 20px; /*  ระยะห่างด้านซ้าย  */
+}
+
+/* Dashboard Card */
+.dashboard-card {
+  background-color: white; /*  สีพื้นหลัง  */
+  padding: 50px; /*  ระยะห่างภายใน  */
+  margin-right: 50px; /*  ระยะห่างด้านขวา  */
+  border-radius: 10px; /*  มุมโค้ง  */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /*  เพิ่ม  shadow effect  */
+  text-align: center; /*  จัดข้อความให้อยู่กึ่งกลาง  */
+  min-width: 50px; /*  ความกว้างขั้นต่ำ  */
+  position: relative; /*  กำหนดตำแหน่งแบบ  relative  */
+  display: flex; /*  จัดเรียงแบบ  flexbox  */
+  flex-direction: column; /*  จัดเรียง  element  ในแนวตั้ง  */
+  align-items: center; /*  จัด  element  ให้อยู่ตรงกลาง  */
+}
+
+.dashboard-card img, 
+#greeting, 
+#date, 
+#time, 
+.dashboard-card button {
+  position: static; /*  กำหนดตำแหน่งแบบ  static  */
+}
+
+.dashboard-card img { /*  รูปภาพใน  dashboard card  */
+  width: 100px; /*  ความกว้างของรูปภาพ  */
+  margin-bottom: 10px; /*  ระยะห่างด้านล่าง  */
+}
+
+.dashboard-card button {
+  background-color: #673ab7; /*  สีพื้นหลัง  */
+  color: white; /*  สีตัวอักษร  */
+  padding: 10px 20px; /*  ระยะห่างภายใน  */
+  border: none; /*  ไม่มีเส้นขอบ  */
+  border-radius: 5px; /*  มุมโค้ง  */
+  cursor: pointer; /*  เปลี่ยน  cursor  เป็น  pointer  */
+  margin-top: 10px; /*  ระยะห่างด้านบน  */
+  position: absolute; /*  กำหนดตำแหน่งแบบ  absolute  */
+  bottom: 100px; /*  ระยะห่างจากด้านล่าง  */
+  right: 100px; /*  ระยะห่างจากด้านขวา  */
+}
+
+/* Container */
+.container {
+  display: flex; /*  จัดเรียงแบบ  flexbox  */
+  flex-direction: row; /*  จัดเรียงในแนวนอน  */
+  align-items: flex-start; /*  จัดองค์ประกอบในแนวตั้งให้อยู่ด้านบน  */
+  justify-content: center; /*  จัดองค์ประกอบในแนวนอนให้อยู่กึ่งกลาง  */
+  height: 100vh; /*  ความสูง  100%  ของ  viewport  */
+  background-color: #e6e6fa; /*  สีพื้นหลัง  */
+}
+
+.container img {
+  width: 200px; /*  ความกว้างของรูปภาพ  */
+  margin-bottom: 20px; /*  ระยะห่างด้านล่าง  */
+}
+
+/* Text Styles */
+#greeting {
+  font-size: 24px; /*  ขนาดตัวอักษร  */
+  color: #800080; /*  สีตัวอักษร  */
+  margin-bottom: 10px; /*  ระยะห่างด้านล่าง  */
+}
+
+#date {
+  font-size: 18px; /*  ขนาดตัวอักษร  */
+  color: #ffd700; /*  สีตัวอักษร  */
+  margin-bottom: 5px; /*  ระยะห่างด้านล่าง  */
+  margin-right: 10px; /*  ระยะห่างด้านขวา  */
+}
+
+#time {
+  font-size: 16px; /*  ขนาดตัวอักษร  */
+  color: #800080; /*  สีตัวอักษร  */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) { /*  ปรับแต่งสำหรับหน้าจอขนาดเล็ก  */
+  .sidenav {
+    width: 100%; /*  ความกว้าง  100%  ของ  viewport  */
+  }
+
+  .sidenav a {
+    padding: 10px 8px 10px 32px; /*  ระยะห่างภายในลิงก์  */
+    font-size: 16px; /*  ขนาดตัวอักษร  */
+  }
+}
