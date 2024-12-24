@@ -186,3 +186,34 @@ button {
 #myAudio {
   display: none; 
 }
+
+@media (max-width: 768px) { 
+  .card {
+    width: 90%;
+    left: 5%;
+    top: 50px;
+  }
+
+  .block {
+    top: 150px;
+    right: 10%;
+    perspective: 600px;
+  }
+
+  .frames {
+    width: 90%;
+  }
+
+  .frames img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .frames p {
+    font-size: 16px;
+  }
+
+  #password {
+    width: 90%; /* ปรับขนาดช่อง input */
+  }
+}
