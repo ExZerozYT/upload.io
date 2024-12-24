@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <input type="password" id="password" placeholder="ใส่รหัสผ่าน">
+    <button onclick="unlockContent()">ปลดล็อค</button>
+
+    <div class="card" id="card">
+      <div class="outside">
+          <h1>Happy Birthday</h1>
+          <h3> ... </h3>
+      </div>
+      <div class="inside">
+          <img src="cakegif.gif"/>
+          <h3> สุขสันต์วันเกิดนะ ขอให้มีความสุขมากๆ สุขภาพแข็งแรงทั้งกายและใจ เป็นที่รักของทุกคน 💕
+          </h3>
+      </div>
+    </div>
+
+    <div class="block" id="block">
+      <div class="frames frame1">
+          <img src="img1.png" alt="">
+          <p> ไม้ทุกชนิดหนูคนนี้รู้จัก❗ </p>
+      </div>
+      <div class="frames frame2">
+          <img src="img2.png" alt="">
+          <p> แฮกเกอร์แมนในอนาคต😎</p>
+      </div>
+      <div class="frames frame3">
+          <img src="img3.png" alt="">
+          <p>ลูกพี่สั่งลุย แต่ลูกน้องโดนเก็บ😂</p>
+      </div>
+    </div>
+
+    <div class="balloons" id="balloons">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div> 
+    </div>
+
+    <audio id="myAudio" controls>
+      <source src="happy-birthday.mp3" type="audio/mpeg">
+    </audio>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> 
+  <script>
+    function unlockContent() {
+      var password = document.getElementById("password").value;
+      if (password === "impaxq.24") {
+        document.getElementById("card").style.display = "block";
+        document.getElementById("block").style.display = "block";
+        document.getElementById("balloons").style.display = "block"; 
+
+        // ซ่อนช่องใส่รหัสผ่านและปุ่ม
+        document.getElementById("password").style.display = "none";
+        document.getElementById("password").nextElementSibling.style.display = "none"; 
+
+        // เล่นเพลง
+        var audio = document.getElementById("myAudio");
+        audio.play(); 
+
+        // แอนิเมชันลูกโป่ง
+        anime({
+          targets: '.balloon',
+          translateY: {
+            value: '-100vh', 
+            duration: 3000,
+            delay: anime.stagger(100), 
+          },
+          loop: true,
+        });
+      } else {
+        alert("รหัสผ่านไม่ถูกต้อง");
+      }
+    }
+  </script>
+</body>
+</html>
