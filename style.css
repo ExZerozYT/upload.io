@@ -1,115 +1,133 @@
+/* CSS สำหรับทุกขนาดหน้าจอ */
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    font-family: 'Bodoni Moda', serif;
-}
-body{
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(bday.gif);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.container{
-    perspective: 1000px;
-}
-.card{
-    width: 280px;
-    height: 360px;
-    position: absolute;
-    top: 100px;
-    left: 230px;
-    transition: 2s;
-    transform-style: preserve-3d;
-}
-.card:hover{
-    transform: rotateY(180deg);
-}
-.block{
-    position: absolute;
-    top:200px;
-    right: 600px;
-    perspective: 800px;
-}
-.outside,.inside{
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    text-align: center;
-    padding: 1.5rem;
-}
-.outside{
-    background-color: blanchedalmond;
-    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
-    position: absolute;
-    backface-visibility: hidden;
-}
-.outside h1{
-    font-size: 3rem;
-    font-weight: bold;
-    color: salmon;
-    margin-bottom: 30px;
-}
-.inside{
-    background-color: rgb(255, 244, 79);
-    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
-    transform: rotateY(180deg);
-}
-.inside h3{
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 20px;
-}
-.frames{
-    width: 400px;
-    height: 150px;
-    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 0.8rem;
 
-    transform: rotateY(-230deg) rotateX(20deg);
-    position: absolute;
-}
-.frames img{
-    width: 125px;
-    height: 125px;
-    border-radius: 50%;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-}
-.frames p{
-    font-size: 20px;
-    font-weight: bold;
-    transform: rotateY(180deg);
-}
-.frames:nth-child(1)
-{
-    top:-110px;
-    z-index: -1;
-    background-color: coral;
-}
-.frames:nth-child(2){
-    background-color: goldenrod;
-}
-.frames:nth-child(3)
-{
-    top:100px;
-    background-color: burlywood;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Bodoni Moda', serif;
 }
 
-#card, #block {
-  display: none; 
+body {
+  background-image: url("bday.png"); 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh; /* ปรับให้ background cover ทั้งหน้าจอ */
+}
+
+.container {
+  perspective: 1000px; /* เพิ่ม perspective ให้กับ container */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัดองค์ประกอบใน container ให้อยู่กึ่งกลาง */
+  min-height: 100vh; /* ปรับให้ container สูงเท่ากับ viewport */
+}
+
+.card {
+  width: 280px;
+  height: 360px;
+  position: relative; /* เปลี่ยน position เป็น relative */
+  top: 100px;
+  transition: 2s;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.block {
+  position: relative; /* เปลี่ยน position เป็น relative */
+  top: 200px;
+  perspective: 800px;
+}
+
+.outside, .inside {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  text-align: center;
+  padding: 1.5rem;
+  position: absolute; /* กำหนด position เป็น absolute */
+  backface-visibility: hidden; /* ซ่อนด้านหลังของ card */
+}
+
+.outside {
+  background-color: blanchedalmond;
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.outside h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: salmon;
+  margin-bottom: 30px;
+}
+
+.inside {
+  background-color: rgb(255, 244, 79);
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5);
+  transform: rotateY(180deg); /* หมุน card 180 องศา */
+}
+
+.inside h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.frames {
+  width: 400px;
+  height: 150px;
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 0.8rem;
+  transform: rotateY(-230deg) rotateX(20deg);
+  position: absolute;
+}
+
+.frames img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.frames p {
+  font-size: 20px;
+  font-weight: bold;
+  transform: rotateY(180deg);
+}
+
+.frames:nth-child(1) {
+  top: -110px;
+  z-index: -1;
+  background-color: coral;
+}
+
+.frames:nth-child(2) {
+  background-color: goldenrod;
+}
+
+.frames:nth-child(3) {
+  top: 100px;
+  background-color: burlywood;
+}
+
+#card,
+#block {
+  display: none;
 }
 
 #password {
-  padding: 15px; 
+  padding: 15px;
   font-size: 18px;
-  width: 300px; 
+  width: 300px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin: 20px auto; 
+  margin: 20px auto;
   display: block;
 }
 
@@ -120,53 +138,53 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  display: block; 
+  display: block;
   margin: 0 auto;
 }
 
 #balloons {
-  display: none; 
-  position: fixed; 
-  bottom: -50px; 
+  display: none;
+  position: fixed;
+  bottom: -50px;
   left: 0;
   width: 100%;
-  z-index: 1; 
+  z-index: 1;
 }
 
 .balloon {
   width: 50px;
   height: 70px;
-  background-color: hsl(0, 100%, 50%); 
+  background-color: hsl(0, 100%, 50%);
   border-radius: 50% 50% 60% 60%;
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%) scale(0); 
-  animation: balloons 3s ease-in-out infinite; 
+  transform: translateX(-50%) scale(0);
+  animation: balloons 3s ease-in-out infinite;
 }
 
-.balloon:nth-child(2) { 
-  background-color: hsl(40, 100%, 50%); /*  สีเหลือง  */
+.balloon:nth-child(2) {
+  background-color: hsl(40, 100%, 50%);
   left: 20%;
-  animation-delay: 0.5s; /*  delay  */
+  animation-delay: 0.5s;
 }
 
-.balloon:nth-child(3) { 
-  background-color: hsl(120, 100%, 50%); /*  สีเขียว  */
+.balloon:nth-child(3) {
+  background-color: hsl(120, 100%, 50%);
   left: 80%;
-  animation-delay: 1s; /*  delay  */
+  animation-delay: 1s;
 }
 
-.balloon:nth-child(4) { 
-  background-color: hsl(200, 100%, 50%); /*  สีฟ้า  */
+.balloon:nth-child(4) {
+  background-color: hsl(200, 100%, 50%);
   left: 10%;
-  animation-delay: 1.5s; /*  delay  */
+  animation-delay: 1.5s;
 }
 
-.balloon:nth-child(5) { 
-  background-color: hsl(280, 100%, 50%); /*  สีม่วง  */
+.balloon:nth-child(5) {
+  background-color: hsl(280, 100%, 50%);
   left: 90%;
-  animation-delay: 2s; /*  delay  */
+  animation-delay: 2s;
 }
 
 @keyframes balloons {
@@ -184,36 +202,5 @@ button {
 }
 
 #myAudio {
-  display: none; 
-}
-
-@media (max-width: 768px) { 
-  .card {
-    width: 90%;
-    left: 5%;
-    top: 50px;
-  }
-
-  .block {
-    top: 150px;
-    right: 10%;
-    perspective: 600px;
-  }
-
-  .frames {
-    width: 90%;
-  }
-
-  .frames img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .frames p {
-    font-size: 16px;
-  }
-
-  #password {
-    width: 90%; /* ปรับขนาดช่อง input */
-  }
+  display: none;
 }
